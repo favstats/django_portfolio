@@ -25,7 +25,7 @@ SECRET_KEY = 'v$5i#+b*4v24y^l(fg2gry$0!rnp_ci(ij&mh5(g8sfj+cc)zj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['favstats.pythonanywhere.com']
 
 
 # Application definition
