@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="en">
+  {% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fabio Votta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Fabio Votta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+            <a class="nav-item nav-link" href="http://twitter.com/favstats">Twitter</a>
+            <a class="nav-item nav-link" href="{% static 'my_cv.pdf' %}">Resume</a>
+            <a class="nav-item nav-link active" href="{% url 'imageupload' %}">Image Upload App<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+	<div style="padding:40px;margin:40px;border:1px solid #ccc">
+		<h1>Django File Upload</h1>
+		<form action="#" method="post" enctype="multipart/form-data">
+			{% csrf_token %} {{form}}
+			<input type="submit" value="Upload" />
+		</form><hr>
+		<ul>
+		{% for img in images %}
+			<li><a href="/uploader{{ img.pic.url }}">{{ img.pic }}</a>
+			<small>({{img.upload_date}})</small></li>
+		{% endfor %}
+		</ul>
+	</div>
