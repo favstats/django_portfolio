@@ -25,7 +25,10 @@ SECRET_KEY = 'v$5i#+b*4v24y^l(fg2gry$0!rnp_ci(ij&mh5(g8sfj+cc)zj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['favstats.pythonanywhere.com']
+ALLOWED_HOSTS = [
+     'favstats.pythonanywhere.com',
+     '127.0.0.1'
+]
 
 
 # Application definition
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'jobs.apps.JobsConfig',
     'blog.apps.BlogConfig',
     'uploader.apps.UploaderConfig',
+    'myapp.apps.MyappConfig',
 ]
 
 MIDDLEWARE = [
